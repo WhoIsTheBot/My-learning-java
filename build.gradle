@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Testing dependencies
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // Jackson for JSON and XML processing
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.0' // For JSON
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.15.0' // For XML
+
+    // SnakeYAML for YAML processing
+    implementation 'org.yaml:snakeyaml:2.0' // Updated version without vulnerabilities
+
+    // JAXB runtime (if needed)
+    implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.3'
+}
+
+application {
+    mainClassName = 'labs.classes.Main' // Specify the full path to your Main class
+}
+
+test {
+    useJUnitPlatform()
+}
